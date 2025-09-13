@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    
+    <display-name>E-Commerce Web Application</display-name>
+    <description>Full-featured e-commerce application</description>
+
+    <listener>
+        <listener-class>com.example.DatabaseInitializer</listener-class>
+    </listener>
+    
+    <!-- Session Configuration -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure> <!-- Set to true in production with HTTPS -->
+        </cookie-config>
+    </session-config>
+    
+    <!-- Security Filters - Commented out for simple auth system -->
+    <!--
+    <filter>
+        <filter-name>SecurityFilter</filter-name>
+        <filter-class>com.ecommerce.filter.SecurityFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>SecurityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>com.ecommerce.filter.AuthenticationFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/user/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>AdminAuthFilter</filter-name>
+        <filter-class>com.ecommerce.filter.AdminAuthFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>AdminAuthFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+    -->
+    
+    <!-- Home Servlet - Commented out -->
+    <!--
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    -->
+    
+    <!-- Old servlets commented out -->
+    <!--
+    <servlet>
+        <servlet-name>ProductsServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.ProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductsServlet</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ProductDetailServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.ProductDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductDetailServlet</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    -->
+    
+    <!-- User Login Servlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.auth.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    
+    <!-- User Signup Servlet -->
+    <servlet>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>com.example.auth.SignupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    
+    <!-- User Logout Servlet -->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.example.auth.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    
+    <!-- All old ecommerce servlets commented out for simple auth system -->
+    <!--
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CartAddServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.CartAddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartAddServlet</servlet-name>
+        <url-pattern>/cart/add</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CartUpdateServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.CartUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartUpdateServlet</servlet-name>
+        <url-pattern>/cart/update</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.CheckoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>OrderPlaceServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.OrderPlaceServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderPlaceServlet</servlet-name>
+        <url-pattern>/order/place</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>UserDashboardServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.UserDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserDashboardServlet</servlet-name>
+        <url-pattern>/user/dashboard</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.admin.AdminLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/admin/login</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdminDashboardServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.admin.AdminDashboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminDashboardServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdminProductServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.admin.AdminProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminProductServlet</servlet-name>
+        <url-pattern>/admin/products</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdminOrderServlet</servlet-name>
+        <servlet-class>com.ecommerce.servlet.admin.AdminOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminOrderServlet</servlet-name>
+        <url-pattern>/admin/orders</url-pattern>
+    </servlet-mapping>
+    -->
+    
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.jsp</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.jsp</location>
+    </error-page>
+    
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error/500.jsp</location>
+    </error-page>
+    
+    <!-- Welcome Files -->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <!-- Context Parameters -->
+    <context-param>
+        <param-name>db.config.file</param-name>
+        <param-value>/db.properties</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>app.name</param-name>
+        <param-value>E-Commerce Application</param-value>
+    </context-param>
+    
+</web-app>
