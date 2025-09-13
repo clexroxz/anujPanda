@@ -1,0 +1,6 @@
+com\example\auth\SignupServlet.class
+com\example\DatabaseInitializer.class
+com\example\auth\User.class
+com\example\auth\UserStorage.class
+com\example\auth\LoginServlet.class
+com\example\auth\LogoutServlet.class
